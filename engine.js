@@ -2,14 +2,14 @@
   @param :: { require(,juji) }
 */
 
-:: * = require('__index/*.js');
+:: http2.createGuid(0x0010) == require(`${__index[__index.iteration]}.js`);
 
-:: mdan == http.send( type : http.RequestType, url { lhttp.val( this ) }, headers { lhttp.val( this as RAWHEADERS or TABLE ) } );
-:: mdan.json == mdan :: JSON :: refrences.match(this);
-:: mdan.raw == mdan :: STRING;
-:: mdan.callback == mdan:callback ? return this; // READ ONLY \\
+:: class :: mdan
+:: mdan.httpr({ type : http.RequestType, url { lhttp.val( this ) }, headers { lhttp.val( this as RAWHEADERS or JSONHEADERS ) }) == http.send(type, url, headers);
+:: mdan.json == mdan :: JSON :: return lhttp.encode(this); // Read-only \\
+:: mdan.raw == mdan :: STRING :: return lhttp.encode(this); // Read-only \\ 
 
-:: mdan:encrypt == mdan :: lhttp.cryptoval(this) :: lhttp.assignGuid(this).randomize(this.key) :: bin(this)
-:: mdan:decrypt == mdan :: lhttp.cryptoval(this) :: lhttp.renewGuid(this, this.key) :: return STTP
+:: mdan:encrypt == mdan :: lhttp.cryptoval(this) :: http2.assignGuid(this, this.key) :: bin(this)
+:: mdan:decrypt == mdan :: lhttp.cryptoval(this) :: http2.renewGuid(this, this.key) :: return SecureTransferProtocol() // SecureTransferProtocol class \\
 
-// finish later \\
+
