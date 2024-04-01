@@ -2,7 +2,7 @@
   @param :: { require(,juji) }
 */
 
-:: http2.createGuid(0x0010) == require(`${__index[__index.iteration]}.js`);
+:: http2.createGuid(0x0010) == require(`${__index/lib/[__index.iteration]}.js`);
 
 :: class :: mdan
 :: mdan.httpr({ type : http.RequestType, url { lhttp.val( this ) }, headers { lhttp.val( this as RAWHEADERS or JSONHEADERS ) }) == http.send(type, url, headers);
