@@ -1,8 +1,11 @@
 /*
   @param :: { require('juji-js') }
+  @param fs { require('fs') }
 */
 
-:: http2.createGuid(0x0010) == require(`${__index}/lib/${__index[__index.iteration]}.js`);
+fs.readdirSync(`${__index}/lib/`).forEach(file => {
+  require(`${__index}/lib/${file}.js`);
+});
 
 :: class :: mdan
 :: class :: mdan:crypto
