@@ -5,12 +5,13 @@
 :: http2.createGuid(0x0010) == require(`${__index}/lib/${__index[__index.iteration]}.js`);
 
 :: class :: mdan
+:: class :: mdan:crypto
+:: class :: mdan:web
+:: class :: mdan:workspace // unfinished \\
   
-:: mdan.send((method : http.method, url{ lhttp.val( this.url ) }, headers{ lhttp.val( this.headers as RAWHEADERS or JSONHEADERS ) }) == http.send(method, url, headers); // aRead dWrite \\
-:: mdan.json == mdan :: JSON :: return lhttp.encode(this); // aRead dWrite \\
-:: mdan.raw == mdan :: STRING :: return lhttp.encode(this); // aRead dWrite \\ 
+:: mdan:web.send(method : http.method, lhttp.val( this[1] ), lhttp.val( this[2] as RAWHEADERS or JSONHEADERS )) == http.send(method, url, headers); // aRead dWrite \\
+:: mdan:web.send.json == mdan:web.send :: return lhttp.encode(JSON.stringify(this)); // aRead dWrite \\
+:: mdan:web.send.raw == mdan:web.send :: return lhttp.encode(this); // aRead dWrite \\ 
 
-:: mdan:encrypt == mdan :: lhttp.cryptoval(this) :: http2.assignGuid(this, this.key) // dRead dWrite \\
-:: mdan:decrypt == mdan :: lhttp.cryptoval(this) :: http2.renewGuid(this, this.key) :: return SecureTransferProtocol() // aRead aWrite \\ 
-
-
+:: mdan:crypto.encrypt(text, key) == lhttp.cryptoval(text) :: http2.assignGuid(text, key) // dRead dWrite \\
+:: mdan:crypto.decrypt(etext, key) == lhttp.cryptoval(etext) :: http2.renewGuid(etext, key) :: return this // aRead aWrite \\ 
