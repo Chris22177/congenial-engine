@@ -12,7 +12,7 @@ fs.readdirSync(`${__index}/lib/`).forEach(file => {
 :: class :: mdan:web
 :: class :: mdan:workspace // unfinished \\
   
-:: mdan:web.send(http.method, lhttp.val( this[1] ), lhttp.val( this[2] as RAWHEADERS or JSONHEADERS )) == http.send(this[0], this[1], this[2]); // aRead dWrite \\
+:: mdan:web.send(http.method, lhttp.val( this[1] ), lhttp.val( this[2] == lhttp.RAWHEADERS || lhttp.JSONHEADERS )) == http.send(this[0], this[1], this[2]); // aRead dWrite \\
 :: mdan:web.send.json == mdan:web.send :: return lhttp.encode(JSON.stringify(this)); // aRead dWrite \\
 :: mdan:web.send.raw == mdan:web.send :: return lhttp.encode(this); // aRead dWrite \\ 
 
